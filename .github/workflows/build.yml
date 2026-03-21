@@ -1,0 +1,55 @@
+name: Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup .NET 10
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '10.0.x'
+        dotnet-quality: 'preview'
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build
+      run: dotnet build --no-restore -c Release
+
+  publish:
+    runs-on: windows-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: build
+
+    permissions:
+      contents: write
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup .NET 10
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '10.0.x'
+        dotnet-quality: 'preview'
+
+    - name: Publish
+      run: dotnet publish ShannonEntropyLab/ShannonEntropyLab.csproj -c Release -r win-x64 -p:PublishSingleFile=true
+
+    - name: Create ZIP
+      run: Compress-Archive -Path ShannonEntropyLab/bin/Release/net10.0-windows/win-x64/publish/ShannonEntropyLab.exe -DestinationPath ShannonEntropyLab-win-x64.zip
+
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v2
+      with:
+        files: ShannonEntropyLab-win-x64.zip
+        generate_release_notes: true
