@@ -1,58 +1,38 @@
-[English](README.md) | [日本語](docs/README.ja.md)
+# ShannonEntropyLab
 
-# 🔐 Shannon Entropy Lab
+A Windows desktop application for calculating and visualizing **Shannon entropy** — a fundamental measure of information randomness.
 
-**Shannon Entropy Lab** is a Windows desktop application for measuring and visualizing the **Shannon entropy** of text strings and binary files.  
-It can be used for security analysis, encryption verification, data randomness evaluation, and more.
+[![.NET](https://img.shields.io/badge/.NET-10.0-512BD4)](https://dotnet.microsoft.com/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Build](https://github.com/freyWylfred/ShannonEntropyLab/actions/workflows/build.yml/badge.svg)](https://github.com/freyWylfred/ShannonEntropyLab/actions)
 
-![.NET 10](https://img.shields.io/badge/.NET-10.0-512BD4?logo=dotnet)
-![Windows Forms](https://img.shields.io/badge/UI-WinForms-blue)
-![License](https://img.shields.io/badge/License-MIT-green)
-![Build](https://github.com/freyWylfred/ShannonEntropyLab/actions/workflows/build.yml/badge.svg)
+> **[日本語版 README はこちら](docs/README.ja.md)**
 
 ---
 
-## ✨ Features
+## Overview
 
-| Feature | Description |
-|---------|-------------|
-| **String Entropy Calculation** | Computes Shannon entropy (bits/char) of input text in real time |
-| **Binary File Analysis** | Analyzes any file at the byte level, displaying entropy and frequency distribution |
-| **Sliding Window Analysis** | Visualizes local entropy changes within a file using a heatmap chart |
-| **High-Entropy String Generator** | Batch-generates cryptographically secure random strings & exports to Excel |
-| **AI Chat** | Integrates with Azure OpenAI for AI-powered conversations about entropy and security |
-| **Dark Theme UI** | Eye-friendly dark color scheme |
+ShannonEntropyLab lets you explore Shannon entropy through multiple analysis modes:
 
----
-
-## 📸 Overview
-
-### Main Window
-- Enter a string and click **⚡ Calculate Entropy** (or press `Ctrl+Enter`) to instantly display the entropy value, strength rating, and character frequency distribution
-- The entropy bar provides an intuitive visual indicator of strength
-
-### Sliding Window Analysis
-- Visualizes **local entropy** of binary files as a time-series chart
-- Customizable window size, step size, smoothing method, and analysis unit (byte / bit / bigram / trigram)
-- Heatmap coloring lets you identify encrypted, compressed, and plaintext regions at a glance
-
-### High-Entropy String Generator
-- Secure random generation powered by `System.Security.Cryptography.RandomNumberGenerator`
-- Export results to Excel (.xlsx)
+- **String entropy** — type any text and instantly see its entropy value, strength rating, and character frequency distribution
+- **Binary file analysis** — load a file and examine byte-level entropy with frequency charts
+- **Sliding window analysis** — visualize entropy changes across a file with an interactive heatmap
+- **High-entropy string generation** — produce cryptographically random strings and export them to Excel
+- **AI Chat** — ask questions about entropy or anything else via Azure OpenAI integration
 
 ---
 
-## 🚀 Requirements
+## Requirements
 
-| Item | Requirement |
-|------|-------------|
+| Item | Details |
+|------|---------|
 | **OS** | Windows 10 / 11 |
 | **Runtime** | [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) |
 | **AI Chat (optional)** | Azure OpenAI Service endpoint & API key |
 
 ---
 
-## 🏗️ Build & Run
+## Build & Run
 
 ```bash
 # Clone the repository
@@ -66,33 +46,33 @@ dotnet build
 dotnet run --project ShannonEntropyLab
 ```
 
-Alternatively, open the solution file `ShannonEntropyLab.slnx` in **Visual Studio 2022 (17.14+)** and press `F5` to run.
+Alternatively, open `ShannonEntropyLab.slnx` in **Visual Studio 2022 (17.14+)** and press `F5`.
 
 ---
 
-## 📖 Usage
+## Usage
 
 ### String Entropy Calculation
-1. Enter a string in the text box on the main window
-2. Click **⚡ Calculate Entropy** (or press `Ctrl+Enter`)
-3. The entropy value, strength rating, and character frequency distribution are displayed
+1. Enter text in the main window text box
+2. Click **Calculate Entropy** (or press `Ctrl+Enter`)
+3. View the entropy value, strength rating, and character frequency distribution
 
 ### Binary File Analysis
 1. Menu → **File** → **Open File** (`Ctrl+O`)
-2. Select the file to analyze
-3. Byte-level entropy and frequency distribution (top 40 byte values) are displayed
+2. Select a file to analyze
+3. View byte-level entropy and frequency distribution (top 40 byte values)
 
 ### Sliding Window Analysis
 1. Menu → **Tools** → **Sliding Window Analysis** (`Ctrl+W`)
-2. Click **📂 Select File** to load a binary file
-3. Configure parameters such as window size and step size
-4. Click **▶ Start Analysis**
-5. Hover over the heatmap chart to see detailed information
+2. Click **Select File** to load a binary file
+3. Configure window size and step size
+4. Click **Start Analysis**
+5. Hover over the heatmap for detailed information
 
 ### High-Entropy String Generation
 1. Menu → **Tools** → **Generate High-Entropy Strings** (`Ctrl+G`)
-2. Set the count and string length, then click **⚡ Generate**
-3. Click **📊 Export to Excel** to save as an .xlsx file
+2. Set the count and length, then click **Generate**
+3. Click **Export to Excel** to save as `.xlsx`
 
 ### AI Chat (Azure OpenAI)
 1. Menu → **Tools** → **OpenAI Settings** — configure your endpoint & API key
@@ -100,22 +80,23 @@ Alternatively, open the solution file `ShannonEntropyLab.slnx` in **Visual Studi
 
 ---
 
-## 📐 Entropy Reference
+## Entropy Reference
 
 | Entropy | Rating | Example |
 |:-------:|:------:|:--------|
-| < 1.5 | ⚠ Very Low | `aaaaaaa` |
-| < 2.5 | △ Low | `abcabc` |
-| < 3.5 | ○ Moderate | Typical English text |
-| < 4.5 | ◎ High | Passwords |
-| ≥ 4.5 | ★ Very High | Cryptographic random strings |
+| < 1.5 | Very Low | `aaaaaaa` |
+| < 2.5 | Low | `abcabc` |
+| < 3.5 | Moderate | Typical English text |
+| < 4.5 | High | Passwords |
+| ≥ 4.5 | Very High | Cryptographic random strings |
 
-> **H = − Σ p(x) × log₂ p(x)**  
+> **H = −Σ p(x) × log₂ p(x)**
+>
 > The higher the Shannon entropy, the greater the randomness of the data.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Framework**: .NET 10 / Windows Forms
 - **Excel Export**: [ClosedXML](https://github.com/ClosedXML/ClosedXML) 0.105.0
@@ -125,7 +106,7 @@ Alternatively, open the solution file `ShannonEntropyLab.slnx` in **Visual Studi
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 ShannonEntropyLab/
@@ -138,32 +119,32 @@ ShannonEntropyLab/
 │   ├── Form1.cs                     # Main form & all dialog logic
 │   ├── Form1.Designer.cs            # Main form UI definitions
 │   ├── Form1.resx                   # Resource file
-│   └── OpenAiSettings.cs            # Azure OpenAI settings model (JSON persistence)
+│   └── OpenAiSettings.cs            # Azure OpenAI settings (JSON persistence)
 ├── .editorconfig                    # Code style settings
 ├── .gitignore
 ├── CONTRIBUTING.md                  # Contribution guide
 ├── LICENSE                          # MIT License
 ├── README.md                        # English (default)
 ├── docs/
-│   └── README.ja.md                 # 日本語 README
+│   └── README.ja.md                 # Japanese README
 └── ShannonEntropyLab.slnx          # Solution file
 ```
 
 ---
 
-## 📜 License
+## License
 
 [MIT License](LICENSE)
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Issues and Pull Requests are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ---
 
-## 📦 Creating a Distributable Executable
+## Creating a Distributable Executable
 
 ```bash
 dotnet publish ShannonEntropyLab/ShannonEntropyLab.csproj -c Release -r win-x64 -p:PublishSingleFile=true
@@ -171,7 +152,7 @@ dotnet publish ShannonEntropyLab/ShannonEntropyLab.csproj -c Release -r win-x64 
 
 A self-contained single executable is generated at `ShannonEntropyLab/bin/Release/net10.0-windows/win-x64/publish/ShannonEntropyLab.exe` (no .NET runtime required).
 
-> **Automated Releases**: Pushing a `v*` tag triggers GitHub Actions to automatically build the executable and create a Release.
+> **Automated Releases**: Pushing a `v*` tag triggers GitHub Actions to build and create a Release automatically.
 >
 > ```bash
 > git tag v1.1.0

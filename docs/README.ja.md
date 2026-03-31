@@ -1,48 +1,28 @@
-[English](../README.md) | [日本語](README.ja.md)
+# ShannonEntropyLab
 
-# 🔐 Shannon Entropy Lab
+**シャノンエントロピー**を計算・可視化する Windows デスクトップアプリケーション
 
-**Shannon Entropy Lab** は、文字列やバイナリファイルの **シャノンエントロピー** を計測・可視化する Windows デスクトップアプリケーションです。  
-セキュリティ分析、暗号化検証、データランダム性の評価などに活用できます。
+[![.NET](https://img.shields.io/badge/.NET-10.0-512BD4)](https://dotnet.microsoft.com/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](../LICENSE)
+[![Build](https://github.com/freyWylfred/ShannonEntropyLab/actions/workflows/build.yml/badge.svg)](https://github.com/freyWylfred/ShannonEntropyLab/actions)
 
-![.NET 10](https://img.shields.io/badge/.NET-10.0-512BD4?logo=dotnet)
-![Windows Forms](https://img.shields.io/badge/UI-WinForms-blue)
-![License](https://img.shields.io/badge/License-MIT-green)
-![Build](https://github.com/freyWylfred/ShannonEntropyLab/actions/workflows/build.yml/badge.svg)
+> **[English README](../README.md)**
 
 ---
 
-## ✨ 機能一覧
+## 概要
 
-| 機能 | 説明 |
-|------|------|
-| **文字列エントロピー計算** | 入力テキストのシャノンエントロピー (bits/char) をリアルタイム算出 |
-| **バイナリファイル解析** | 任意のファイルをバイトレベルで解析し、エントロピーと頻度分布を表示 |
-| **スライディングウィンドウ解析** | ファイル内の局所的なエントロピー変化をヒートマップチャートで可視化 |
-| **高エントロピー文字列ジェネレーター** | 暗号学的に安全な乱数による文字列一括生成 & Excel 出力 |
-| **AI チャット** | Azure OpenAI と連携し、エントロピーやセキュリティに関する AI 対話 |
-| **ダークテーマ UI** | 目に優しいダークカラースキーム |
+ShannonEntropyLab は、シャノンエントロピーを様々な方法で分析できるツールです：
 
----
-
-## 📸 概要
-
-### メイン画面
-- 文字列を入力して **⚡ エントロピーを算出** ボタン（または `Ctrl+Enter`）でエントロピー値・強度・文字頻度分布を即座に表示
-- エントロピーバーで直感的に強度を把握
-
-### スライディングウィンドウ解析
-- バイナリファイルの **局所エントロピー** を時系列で可視化
-- 窓幅・ステップ・平滑化手法・解析単位（バイト / ビット / バイグラム / トライグラム）をカスタマイズ可能
-- ヒートマップカラーで暗号化・圧縮・平文領域を一目で識別
-
-### 高エントロピー文字列ジェネレーター
-- `System.Security.Cryptography.RandomNumberGenerator` による安全な乱数生成
-- 生成結果を Excel (.xlsx) にエクスポート
+- **文字列エントロピー計算** — テキストを入力して即座にエントロピー値・強度評価・文字頻度分布を表示
+- **バイナリファイル解析** — ファイルのバイトレベルのエントロピーと頻度分布を分析
+- **スライディングウィンドウ解析** — ヒートマップでファイル全体のエントロピー変化を可視化
+- **高エントロピー文字列生成** — 暗号学的に安全なランダム文字列を生成し Excel にエクスポート
+- **AI チャット** — Azure OpenAI 連携でエントロピーに関する質問が可能
 
 ---
 
-## 🚀 必要要件
+## 必要条件
 
 | 項目 | 要件 |
 |------|------|
@@ -52,7 +32,7 @@
 
 ---
 
-## 🏗️ ビルド & 実行
+## ビルド & 実行
 
 ```bash
 # リポジトリをクローン
@@ -70,11 +50,11 @@ dotnet run --project ShannonEntropyLab
 
 ---
 
-## 📖 使い方
+## 使い方
 
 ### 文字列エントロピー計算
 1. メイン画面のテキストボックスに文字列を入力
-2. **⚡ エントロピーを算出** をクリック（または `Ctrl+Enter`）
+2. **エントロピーを計算** をクリック（または `Ctrl+Enter`）
 3. エントロピー値・強度評価・文字頻度分布が表示されます
 
 ### バイナリファイル解析
@@ -84,15 +64,15 @@ dotnet run --project ShannonEntropyLab
 
 ### スライディングウィンドウ解析
 1. メニュー → **ツール** → **スライディングウィンドウ解析** (`Ctrl+W`)
-2. **📂 ファイルを選択** でバイナリファイルを読み込み
+2. **ファイルを選択** でバイナリファイルを読み込み
 3. 窓幅・ステップなどのパラメータを設定
-4. **▶ 解析開始** をクリック
-5. ヒートマップチャートにマウスオーバーで詳細情報を確認
+4. **解析開始** をクリック
+5. ヒートマップにマウスオーバーで詳細情報を確認
 
 ### 高エントロピー文字列生成
 1. メニュー → **ツール** → **高エントロピー文字列を生成** (`Ctrl+G`)
-2. 生成数・文字列長を設定して **⚡ 生成**
-3. **📊 Excel出力** で .xlsx ファイルにエクスポート
+2. 生成数・文字列長を設定して **生成**
+3. **Excel出力** で .xlsx ファイルにエクスポート
 
 ### AI チャット (Azure OpenAI)
 1. メニュー → **ツール** → **OpenAI 接続設定** でエンドポイント・API キーを設定
@@ -100,22 +80,23 @@ dotnet run --project ShannonEntropyLab
 
 ---
 
-## 📐 エントロピーの目安
+## エントロピーの目安
 
 | エントロピー | 評価 | 例 |
 |:---:|:---:|:---|
-| < 1.5 | ⚠ 非常に低い | `aaaaaaa` |
-| < 2.5 | △ 低い | `abcabc` |
-| < 3.5 | ○ 中程度 | 一般的な英文 |
-| < 4.5 | ◎ 高い | パスワード |
-| ≥ 4.5 | ★ 非常に高い | 暗号学的乱数文字列 |
+| < 1.5 | 非常に低い | `aaaaaaa` |
+| < 2.5 | 低い | `abcabc` |
+| < 3.5 | 中程度 | 一般的な英文 |
+| < 4.5 | 高い | パスワード |
+| ≥ 4.5 | 非常に高い | 暗号学的乱数文字列 |
 
-> **H = − Σ p(x) × log₂ p(x)**  
+> **H = −Σ p(x) × log₂ p(x)**
+>
 > シャノンエントロピーが高いほど、データのランダム性が高いことを示します。
 
 ---
 
-## 🛠️ 技術スタック
+## 技術スタック
 
 - **フレームワーク**: .NET 10 / Windows Forms
 - **Excel 出力**: [ClosedXML](https://github.com/ClosedXML/ClosedXML) 0.105.0
@@ -125,7 +106,7 @@ dotnet run --project ShannonEntropyLab
 
 ---
 
-## 📁 プロジェクト構成
+## プロジェクト構成
 
 ```
 ShannonEntropyLab/
@@ -151,19 +132,19 @@ ShannonEntropyLab/
 
 ---
 
-## 📜 ライセンス
+## ライセンス
 
 [MIT License](../LICENSE)
 
 ---
 
-## 🤝 コントリビュート
+## コントリビュート
 
 Issue や Pull Request を歓迎します。詳しくは [CONTRIBUTING.md](../CONTRIBUTING.md) をご覧ください。
 
 ---
 
-## 📦 配布用 exe の作成
+## 配布用 exe の作成
 
 ```bash
 dotnet publish ShannonEntropyLab/ShannonEntropyLab.csproj -c Release -r win-x64 -p:PublishSingleFile=true

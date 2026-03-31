@@ -1,34 +1,34 @@
-# コントリビュートガイド
+# Contributing Guide
 
-ShannonEntropyLab への貢献に興味を持っていただきありがとうございます！
+Thank you for your interest in contributing to ShannonEntropyLab!
 
-## 🐛 バグ報告
+## Bug Reports
 
-1. [Issues](https://github.com/freyWylfred/ShannonEntropyLab/issues) で既存の報告を検索してください
-2. 見つからない場合は **New Issue** を作成し、以下を記載してください:
-   - 再現手順
-   - 期待される動作
-   - 実際の動作
-   - OS / .NET バージョン
+1. Search existing [Issues](https://github.com/freyWylfred/ShannonEntropyLab/issues) first
+2. If not found, create a **New Issue** with:
+   - Steps to reproduce
+   - Expected behavior
+   - Actual behavior
+   - OS / .NET version
 
-## 💡 機能リクエスト
+## Feature Requests
 
-Issue を作成し、`enhancement` ラベルを付けてください。
+Create an Issue with the `enhancement` label.
 
-## 🔧 Pull Request
+## Pull Requests
 
-1. このリポジトリを **Fork** する
-2. フィーチャーブランチを作成する (`git checkout -b feature/amazing-feature`)
-3. 変更をコミットする (`git commit -m 'Add amazing feature'`)
-4. ブランチをプッシュする (`git push origin feature/amazing-feature`)
-5. **Pull Request** を作成する
+1. **Fork** this repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m "Add amazing feature"`)
+4. Push the branch (`git push origin feature/amazing-feature`)
+5. Create a **Pull Request**
 
-### コーディング規約
+### Coding Guidelines
 
-- .NET のデフォルトコーディング規約に従ってください
-- `.editorconfig` の設定を適用してください
-- 新機能には適切な例外処理を含めてください
+- Follow default .NET coding conventions
+- Apply `.editorconfig` settings
+- Include appropriate error handling for new features
 
-## 📜 ライセンス
+## License
 
-コントリビュートされたコードは [MIT License](LICENSE) の下で提供されます。
+All contributions are released under the [MIT License](LICENSE).
